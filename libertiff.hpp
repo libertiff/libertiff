@@ -405,6 +405,14 @@ constexpr TagCodeType GeoTIFFPixelScale = 33550;
 constexpr TagCodeType GeoTIFFTiePoints = 33922;
 constexpr TagCodeType GeoTIFFGeoKeyDirectory = 34735;
 constexpr TagCodeType GeoTIFFAsciiParams = 34737;
+
+// GDAL tags
+constexpr TagCodeType GDAL_METADATA = 42112;
+constexpr TagCodeType GDAL_NODATA = 42113;
+
+// GeoTIFF related
+constexpr TagCodeType RPCCoefficients = 50844;
+
 }  // namespace TagCode
 
 #define LIBERTIFF_CASE_TAGCODE_STR(x)                                          \
@@ -438,6 +446,9 @@ inline const char *tagCodeName(TagCodeType tagCode)
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFTiePoints);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFGeoKeyDirectory);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFAsciiParams);
+        LIBERTIFF_CASE_TAGCODE_STR(GDAL_METADATA);
+        LIBERTIFF_CASE_TAGCODE_STR(GDAL_NODATA);
+        LIBERTIFF_CASE_TAGCODE_STR(RPCCoefficients);
         default:
             break;
     }
