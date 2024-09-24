@@ -1449,7 +1449,7 @@ class Image
         }
         else if (dataTypeSize == sizeof(uint16_t))
         {
-            // Read up to 2 (classic) or 4 (BigTIFF) inline bytes
+            // Read up to 2 (classic) or 4 (BigTIFF) inline 16-bit values
             for (uint32_t idx = 0; idx < entry.count; ++idx)
             {
                 entry.uint16Values[idx] =
@@ -1463,7 +1463,7 @@ class Image
         }
         else if (dataTypeSize == sizeof(uint32_t))
         {
-            // Read up to 1 (classic) or 2 (BigTIFF) inline bytes
+            // Read up to 1 (classic) or 2 (BigTIFF) inline 32-bit values
             entry.uint32Values[0] = m_rc->read<uint32_t>(offset, ok);
             if (entry.count == 1 && entry.type == TagType::Long)
             {
