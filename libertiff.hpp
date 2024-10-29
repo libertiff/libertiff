@@ -1444,7 +1444,7 @@ class Image
 
                 entry.invalid_value_offset =
                     (byteCount > THRESHOLD_CHECK_FILE_SIZE &&
-                     (entry.value_offset >= m_rc->size() ||
+                     (m_rc->size() < byteCount ||
                       entry.value_offset > m_rc->size() - byteCount));
             }
         }
