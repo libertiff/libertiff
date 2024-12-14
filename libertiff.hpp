@@ -606,7 +606,23 @@ constexpr CompressionType CCITT_FAX4 = 4;
 constexpr CompressionType LZW = 5;
 constexpr CompressionType OldJPEG = 6;
 constexpr CompressionType JPEG = 7;
-constexpr CompressionType Deflate = 8;
+constexpr CompressionType Deflate =
+    8; /* Deflate compression, as recognized by Adobe */
+constexpr CompressionType PackBits = 32773;
+constexpr CompressionType LegacyDeflate =
+    32946;                              /* Deflate compression, legacy tag */
+constexpr CompressionType JBIG = 34661; /* ISO JBIG */
+constexpr CompressionType LERC =
+    34887; /* ESRI Lerc codec: https://github.com/Esri/lerc */
+constexpr CompressionType LZMA = 34925; /* LZMA2 */
+constexpr CompressionType ZSTD =
+    50000; /* ZSTD: WARNING not registered in Adobe-maintained registry */
+constexpr CompressionType WEBP =
+    50001; /* WEBP: WARNING not registered in Adobe-maintained registry */
+constexpr CompressionType JXL =
+    50002; /* JPEGXL: WARNING not registered in Adobe-maintained registry */
+constexpr CompressionType JXL_DNG_1_7 =
+    52546; /* JPEGXL from DNG 1.7 specification */
 }  // namespace Compression
 
 #define LIBERTIFF_CASE_COMPRESSION_STR(x)                                      \
@@ -625,6 +641,15 @@ inline const char *compressionName(CompressionType compression)
         LIBERTIFF_CASE_COMPRESSION_STR(OldJPEG);
         LIBERTIFF_CASE_COMPRESSION_STR(JPEG);
         LIBERTIFF_CASE_COMPRESSION_STR(Deflate);
+        LIBERTIFF_CASE_COMPRESSION_STR(PackBits);
+        LIBERTIFF_CASE_COMPRESSION_STR(LegacyDeflate);
+        LIBERTIFF_CASE_COMPRESSION_STR(JBIG);
+        LIBERTIFF_CASE_COMPRESSION_STR(LERC);
+        LIBERTIFF_CASE_COMPRESSION_STR(LZMA);
+        LIBERTIFF_CASE_COMPRESSION_STR(ZSTD);
+        LIBERTIFF_CASE_COMPRESSION_STR(WEBP);
+        LIBERTIFF_CASE_COMPRESSION_STR(JXL);
+        LIBERTIFF_CASE_COMPRESSION_STR(JXL_DNG_1_7);
         default:
             break;
     }
