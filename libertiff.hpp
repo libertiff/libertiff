@@ -387,12 +387,15 @@ constexpr TagCodeType ImageLength = 257;
 constexpr TagCodeType BitsPerSample = 258;
 constexpr TagCodeType Compression = 259;
 constexpr TagCodeType PhotometricInterpretation = 262;
+constexpr TagCodeType DocumentName = 269;
 constexpr TagCodeType ImageDescription = 270;
 constexpr TagCodeType StripOffsets = 273;
 constexpr TagCodeType SamplesPerPixel = 277;
 constexpr TagCodeType RowsPerStrip = 278;
 constexpr TagCodeType StripByteCounts = 279;
 constexpr TagCodeType PlanarConfiguration = 284;
+constexpr TagCodeType Software = 305;
+constexpr TagCodeType DateTime = 306;
 constexpr TagCodeType Predictor = 317;
 constexpr TagCodeType ColorMap = 320;
 constexpr TagCodeType TileWidth = 322;
@@ -401,6 +404,8 @@ constexpr TagCodeType TileOffsets = 324;
 constexpr TagCodeType TileByteCounts = 325;
 constexpr TagCodeType ExtraSamples = 338;
 constexpr TagCodeType SampleFormat = 339;
+
+constexpr TagCodeType Copyright = 33432;
 
 // GeoTIFF tags
 constexpr TagCodeType GeoTIFFPixelScale = 33550;
@@ -440,12 +445,15 @@ inline const char *tagCodeName(TagCodeType tagCode)
         LIBERTIFF_CASE_TAGCODE_STR(BitsPerSample);
         LIBERTIFF_CASE_TAGCODE_STR(Compression);
         LIBERTIFF_CASE_TAGCODE_STR(PhotometricInterpretation);
+        LIBERTIFF_CASE_TAGCODE_STR(DocumentName);
         LIBERTIFF_CASE_TAGCODE_STR(ImageDescription);
         LIBERTIFF_CASE_TAGCODE_STR(StripOffsets);
         LIBERTIFF_CASE_TAGCODE_STR(SamplesPerPixel);
         LIBERTIFF_CASE_TAGCODE_STR(RowsPerStrip);
         LIBERTIFF_CASE_TAGCODE_STR(StripByteCounts);
         LIBERTIFF_CASE_TAGCODE_STR(PlanarConfiguration);
+        LIBERTIFF_CASE_TAGCODE_STR(Software);
+        LIBERTIFF_CASE_TAGCODE_STR(DateTime);
         LIBERTIFF_CASE_TAGCODE_STR(Predictor);
         LIBERTIFF_CASE_TAGCODE_STR(ColorMap);
         LIBERTIFF_CASE_TAGCODE_STR(TileWidth);
@@ -454,6 +462,7 @@ inline const char *tagCodeName(TagCodeType tagCode)
         LIBERTIFF_CASE_TAGCODE_STR(TileByteCounts);
         LIBERTIFF_CASE_TAGCODE_STR(ExtraSamples);
         LIBERTIFF_CASE_TAGCODE_STR(SampleFormat);
+        LIBERTIFF_CASE_TAGCODE_STR(Copyright);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFPixelScale);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFTiePoints);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFGeoKeyDirectory);
