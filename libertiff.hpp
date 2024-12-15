@@ -394,6 +394,7 @@ constexpr TagCodeType RowsPerStrip = 278;
 constexpr TagCodeType StripByteCounts = 279;
 constexpr TagCodeType PlanarConfiguration = 284;
 constexpr TagCodeType Predictor = 317;
+constexpr TagCodeType ColorMap = 320;
 constexpr TagCodeType TileWidth = 322;
 constexpr TagCodeType TileLength = 323;
 constexpr TagCodeType TileOffsets = 324;
@@ -446,6 +447,7 @@ inline const char *tagCodeName(TagCodeType tagCode)
         LIBERTIFF_CASE_TAGCODE_STR(StripByteCounts);
         LIBERTIFF_CASE_TAGCODE_STR(PlanarConfiguration);
         LIBERTIFF_CASE_TAGCODE_STR(Predictor);
+        LIBERTIFF_CASE_TAGCODE_STR(ColorMap);
         LIBERTIFF_CASE_TAGCODE_STR(TileWidth);
         LIBERTIFF_CASE_TAGCODE_STR(TileLength);
         LIBERTIFF_CASE_TAGCODE_STR(TileOffsets);
