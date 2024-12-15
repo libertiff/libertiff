@@ -404,12 +404,14 @@ constexpr TagCodeType TileOffsets = 324;
 constexpr TagCodeType TileByteCounts = 325;
 constexpr TagCodeType ExtraSamples = 338;
 constexpr TagCodeType SampleFormat = 339;
+constexpr TagCodeType JPEGTables = 347;
 
 constexpr TagCodeType Copyright = 33432;
 
 // GeoTIFF tags
 constexpr TagCodeType GeoTIFFPixelScale = 33550;
 constexpr TagCodeType GeoTIFFTiePoints = 33922;
+constexpr TagCodeType GeoTIFFGeoTransMatrix = 34264;
 constexpr TagCodeType GeoTIFFGeoKeyDirectory = 34735;
 constexpr TagCodeType GeoTIFFAsciiParams = 34737;
 
@@ -463,8 +465,10 @@ inline const char *tagCodeName(TagCodeType tagCode)
         LIBERTIFF_CASE_TAGCODE_STR(ExtraSamples);
         LIBERTIFF_CASE_TAGCODE_STR(SampleFormat);
         LIBERTIFF_CASE_TAGCODE_STR(Copyright);
+        LIBERTIFF_CASE_TAGCODE_STR(JPEGTables);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFPixelScale);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFTiePoints);
+        LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFGeoTransMatrix);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFGeoKeyDirectory);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFAsciiParams);
         LIBERTIFF_CASE_TAGCODE_STR(GDAL_METADATA);
