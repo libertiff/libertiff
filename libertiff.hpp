@@ -378,8 +378,8 @@ typedef uint16_t TagCodeType;
 /** TIFF tag codes */
 namespace TagCode
 {
-constexpr TagCodeType NewSubfileType = 254;
-constexpr TagCodeType SubfileType = 255;
+constexpr TagCodeType SubFileType = 254;
+constexpr TagCodeType OldSubFileType = 255;
 
 // Base line and extended TIFF tags
 constexpr TagCodeType ImageWidth = 256;
@@ -416,6 +416,14 @@ constexpr TagCodeType RPCCoefficients = 50844;
 
 }  // namespace TagCode
 
+/** Binary or'ed value of SubFileType flags */
+namespace SubFileTypeFlags
+{
+constexpr uint32_t ReducedImage = 0x1; /* reduced resolution version */
+constexpr uint32_t Page = 0x2;         /* one page of many */
+constexpr uint32_t Mask = 0x4;         /* transparency mask */
+}  // namespace SubFileTypeFlags
+
 #define LIBERTIFF_CASE_TAGCODE_STR(x)                                          \
     case TagCode::x:                                                           \
         return #x
@@ -424,8 +432,8 @@ inline const char *tagCodeName(TagCodeType tagCode)
 {
     switch (tagCode)
     {
-        LIBERTIFF_CASE_TAGCODE_STR(NewSubfileType);
-        LIBERTIFF_CASE_TAGCODE_STR(SubfileType);
+        LIBERTIFF_CASE_TAGCODE_STR(SubFileType);
+        LIBERTIFF_CASE_TAGCODE_STR(OldSubFileType);
         LIBERTIFF_CASE_TAGCODE_STR(ImageWidth);
         LIBERTIFF_CASE_TAGCODE_STR(ImageLength);
         LIBERTIFF_CASE_TAGCODE_STR(BitsPerSample);
@@ -931,6 +939,12 @@ class Image
         return m_nextImageOffset;
     }
 
+    /** Return value of SubFileType tag */
+    inline uint32_t subFileType() const
+    {
+        return m_subFileType;
+    }
+
     /** Return width of the image in pixels */
     inline uint32_t width() const
     {
@@ -1272,6 +1286,7 @@ class Image
     std::set<uint64_t> m_alreadyVisitedImageOffsets{};
     uint64_t m_offset = 0;
     uint64_t m_nextImageOffset = 0;
+    uint32_t m_subFileType = 0;
     uint32_t m_width = 0;
     uint32_t m_height = 0;
     uint32_t m_bitsPerSample = 0;
@@ -1306,6 +1321,10 @@ class Image
         {
             switch (entry.tag)
             {
+                case TagCode::SubFileType:
+                    m_subFileType = singleValue;
+                    break;
+
                 case TagCode::ImageWidth:
                     m_width = singleValue;
                     break;
