@@ -398,6 +398,7 @@ constexpr TagCodeType TileWidth = 322;
 constexpr TagCodeType TileLength = 323;
 constexpr TagCodeType TileOffsets = 324;
 constexpr TagCodeType TileByteCounts = 325;
+constexpr TagCodeType ExtraSamples = 338;
 constexpr TagCodeType SampleFormat = 339;
 
 // GeoTIFF tags
@@ -441,6 +442,7 @@ inline const char *tagCodeName(TagCodeType tagCode)
         LIBERTIFF_CASE_TAGCODE_STR(TileLength);
         LIBERTIFF_CASE_TAGCODE_STR(TileOffsets);
         LIBERTIFF_CASE_TAGCODE_STR(TileByteCounts);
+        LIBERTIFF_CASE_TAGCODE_STR(ExtraSamples);
         LIBERTIFF_CASE_TAGCODE_STR(SampleFormat);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFPixelScale);
         LIBERTIFF_CASE_TAGCODE_STR(GeoTIFFTiePoints);
@@ -693,6 +695,17 @@ inline const char *sampleFormatName(SampleFormatType sampleFormat)
 }
 
 #undef LIBERTIFF_CASE_SAMPLE_FORMAT_STR
+
+/** Type of a ExtraSamples value */
+typedef uint32_t ExtraSamplesType;
+
+/** Values of the ExtraSamples tag */
+namespace ExtraSamples
+{
+constexpr ExtraSamplesType Unspecified = 0;
+constexpr ExtraSamplesType AssociatedAlpha = 1;   /* premultiplied */
+constexpr ExtraSamplesType UnAssociatedAlpha = 2; /* unpremultiplied */
+}  // namespace ExtraSamples
 
 /** Content of a tag entry in a Image File Directory (IFD) */
 struct TagEntry
