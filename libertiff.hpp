@@ -423,6 +423,10 @@ constexpr TagCodeType GDAL_NODATA = 42113;
 // GeoTIFF related
 constexpr TagCodeType RPCCoefficients = 50844;
 
+// LERC compression related
+constexpr TagCodeType LERCParameters =
+    50674; /* Stores LERC version and additional compression method */
+
 }  // namespace TagCode
 
 /** Binary or'ed value of SubFileType flags */
@@ -476,6 +480,7 @@ inline const char *tagCodeName(TagCodeType tagCode)
         LIBERTIFF_CASE_TAGCODE_STR(GDAL_METADATA);
         LIBERTIFF_CASE_TAGCODE_STR(GDAL_NODATA);
         LIBERTIFF_CASE_TAGCODE_STR(RPCCoefficients);
+        LIBERTIFF_CASE_TAGCODE_STR(LERCParameters);
         default:
             break;
     }
