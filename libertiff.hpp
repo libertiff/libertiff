@@ -14,6 +14,7 @@
 #include <bit>  // std::endian
 #endif
 
+#include <algorithm>
 #include <array>
 #include <cassert>
 #include <cstring>
@@ -1025,6 +1026,12 @@ class Image
     inline uint32_t rowsPerStrip() const
     {
         return m_rowsPerStrip;
+    }
+
+    /** Return the sanitized number of rows per strip */
+    inline uint32_t rowsPerStripSanitized() const
+    {
+        return std::min(m_rowsPerStrip, m_height);
     }
 
     /** Return the number of strips/tiles.
