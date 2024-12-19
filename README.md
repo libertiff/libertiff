@@ -6,7 +6,7 @@ Libertiff is a C++11 simple, [header-only](libertiff.hpp), TIFF reader. It is MI
 
 Handles both ClassicTIFF and BigTIFF, little-endian or big-endian ordered.
 
-The library does not (yet?) offer codec facilities. It is mostly aimed at
+The library does not offer codec facilities (and probably won't). It is mostly aimed at
 browsing through the linked chain of Image File Directory (IFD) and their tags.
 
 "Offline" tag values are not loaded at IFD opening time, but only upon
